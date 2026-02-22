@@ -34,7 +34,7 @@ allowed = os.environ.get('DJANGO_ALLOWED_HOSTS', '')
 if allowed:
     ALLOWED_HOSTS = [h.strip() for h in allowed.split(',') if h.strip()]
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1'] if DEBUG else []
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1','team-task-manager-django.onrender.com'] if DEBUG else []
 
 import dj_database_url
 
