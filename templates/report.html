@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weekly Report</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+<main class="container">
+    <h2>Weekly Sprint Report</h2>
+
+    <div class="card">
+        <p><strong>Tasks Created This Week:</strong> {{ created_this_week }}</p>
+        <p><strong>Tasks Completed This Week:</strong> {{ completed_this_week }}</p>
+        <p><strong>Completion Rate:</strong> {{ completion_rate }}%</p>
+    </div>
+
+    <a class="btn" href="{% url 'dashboard' %}">Back</a>
+</main>
+</body>
+</html>

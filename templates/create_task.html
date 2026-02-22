@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+<html lang="en">
 <head>
-    <title>Create Task</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %} - Task Manager</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 </head>
 <body>
 
-<h2>Create Task</h2>
+<main class="container">
+    <div class="card">
+        <h2>{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %}</h2>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+        <form method="POST" class="task-form">
+            {% csrf_token %}
+            <div class="form-grid">
+                {{ form.as_p }}
+            </div>
 
-<a href="{% url 'dashboard' %}">Back</a>
+            <div class="form-actions">
+                <button class="btn primary" type="submit">{% if form.instance.pk %}Save{% else %}Create{% endif %}</button>
+                <a class="btn" href="{% url 'dashboard' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
 
 </body>
 </html>

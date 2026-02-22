@@ -1,27 +1,31 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Task Manager</title>
-    
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 </head>
-<body>
+<body class="auth-page">
 
-    <h2>Login to Task Manager</h2>
-    <form method = "POST">
-        {% csrf_token %}
-        
-        <label> Username </label>
-        <input type = 'text' name ='username' required>
-        <br><br>
+<div class="auth-wrap">
+    <div class="auth-card">
+        <h2>Login to Task Manager</h2>
+        <form method="POST" class="auth-form">
+            {% csrf_token %}
+            <label>Username</label>
+            <input type="text" name="username" required autofocus>
 
-        <label> Password </label>
-        <input type = 'password' name = 'password' required>
-        <br><br>
+            <label>Password</label>
+            <input type="password" name="password" required>
 
-        <button type='submit'>Login</button>
+            <div class="form-actions">
+                <button class="btn primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-    </form>
 </body>
 </html>
